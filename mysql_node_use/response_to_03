@@ -1,0 +1,142 @@
+lucia@LuciaBo:~/Boty22_github/Node/mysql_node_use$ node 03_mysql_query.js
+
+** 1 **
+result for query: SELECT * FROM customers
+[ RowDataPacket { id: 1, name: 'Company Inc', address: 'Highway 37' },
+  RowDataPacket { id: 2, name: 'John', address: 'Highway 71' },
+  RowDataPacket { id: 3, name: 'Peter', address: 'Lowstreet 4' },
+  RowDataPacket { id: 4, name: 'Amy', address: 'Apple st 652' },
+  RowDataPacket { id: 5, name: 'Hannah', address: 'Mountain 21' },
+  RowDataPacket { id: 6, name: 'Michael', address: 'Valley 345' },
+  RowDataPacket { id: 7, name: 'Sandy', address: 'Ocean blvd 2' },
+  RowDataPacket { id: 8, name: 'Betty', address: 'Green Grass 1' },
+  RowDataPacket { id: 9, name: 'Richard', address: 'Sky st 331' },
+  RowDataPacket { id: 10, name: 'Susan', address: 'One way 98' },
+  RowDataPacket { id: 11, name: 'Vicky', address: 'Yellow Garden 2' },
+  RowDataPacket { id: 12, name: 'Ben', address: 'Park Lane 38' },
+  RowDataPacket { id: 13, name: 'William', address: 'Central st 954' },
+  RowDataPacket { id: 14, name: 'Chuck', address: 'Main Road 989' },
+  RowDataPacket { id: 15, name: 'Viola', address: 'Sideway 1633' } ]
+
+** 2 **
+result for query: SELECT name, address FROM customers
+[ RowDataPacket { name: 'Company Inc', address: 'Highway 37' },
+  RowDataPacket { name: 'John', address: 'Highway 71' },
+  RowDataPacket { name: 'Peter', address: 'Lowstreet 4' },
+  RowDataPacket { name: 'Amy', address: 'Apple st 652' },
+  RowDataPacket { name: 'Hannah', address: 'Mountain 21' },
+  RowDataPacket { name: 'Michael', address: 'Valley 345' },
+  RowDataPacket { name: 'Sandy', address: 'Ocean blvd 2' },
+  RowDataPacket { name: 'Betty', address: 'Green Grass 1' },
+  RowDataPacket { name: 'Richard', address: 'Sky st 331' },
+  RowDataPacket { name: 'Susan', address: 'One way 98' },
+  RowDataPacket { name: 'Vicky', address: 'Yellow Garden 2' },
+  RowDataPacket { name: 'Ben', address: 'Park Lane 38' },
+  RowDataPacket { name: 'William', address: 'Central st 954' },
+  RowDataPacket { name: 'Chuck', address: 'Main Road 989' },
+  RowDataPacket { name: 'Viola', address: 'Sideway 1633' } ]
+
+** 3 **
+fields for query: SELECT name, address FROM customers
+[ FieldPacket {
+    catalog: 'def',
+    db: 'mydb',
+    table: 'customers',
+    orgTable: 'customers',
+    name: 'name',
+    orgName: 'name',
+    charsetNr: 33,
+    length: 765,
+    type: 253,
+    flags: 0,
+    decimals: 0,
+    default: undefined,
+    zeroFill: false,
+    protocol41: true },
+  FieldPacket {
+    catalog: 'def',
+    db: 'mydb',
+    table: 'customers',
+    orgTable: 'customers',
+    name: 'address',
+    orgName: 'address',
+    charsetNr: 33,
+    length: 765,
+    type: 253,
+    flags: 0,
+    decimals: 0,
+    default: undefined,
+    zeroFill: false,
+    protocol41: true } ]
+
+^C
+
+lucia@LuciaBo:~/Boty22_github/Node/mysql_node_use$ mysql -u pilita -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 24
+Server version: 8.0.17 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases
+    -> ;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mydb               |
+| mysql              |
+| performance_schema |
+| sys                |
++--------------------+
+5 rows in set (0.00 sec)
+
+mysql> use mydb
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+mysql> show tables
+    -> ;
++----------------+
+| Tables_in_mydb |
++----------------+
+| customers      |
++----------------+
+1 row in set (0.00 sec)
+
+mysql> select * from customers;
++----+-------------+-----------------+
+| id | name        | address         |
++----+-------------+-----------------+
+|  1 | Company Inc | Highway 37      |
+|  2 | John        | Highway 71      |
+|  3 | Peter       | Lowstreet 4     |
+|  4 | Amy         | Apple st 652    |
+|  5 | Hannah      | Mountain 21     |
+|  6 | Michael     | Valley 345      |
+|  7 | Sandy       | Ocean blvd 2    |
+|  8 | Betty       | Green Grass 1   |
+|  9 | Richard     | Sky st 331      |
+| 10 | Susan       | One way 98      |
+| 11 | Vicky       | Yellow Garden 2 |
+| 12 | Ben         | Park Lane 38    |
+| 13 | William     | Central st 954  |
+| 14 | Chuck       | Main Road 989   |
+| 15 | Viola       | Sideway 1633    |
++----+-------------+-----------------+
+15 rows in set (0.00 sec)
+
+mysql> quit
+
+
+
+
+
